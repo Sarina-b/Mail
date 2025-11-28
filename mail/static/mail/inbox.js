@@ -43,6 +43,7 @@ function compose_email() {
   // Show compose view and hide other views
   document.querySelector('#emails-view').style.display = 'none';
   document.querySelector('#compose-view').style.display = 'block';
+  document.querySelector('.each_email_show').style.display= 'none';
 
   // Clear out composition fields
   document.querySelector('#compose-recipients').value = '';
@@ -54,6 +55,7 @@ function load_mailbox(mailbox) {
   // Show the mailbox and hide other views
   document.querySelector('#emails-view').style.display = 'block';
   document.querySelector('#compose-view').style.display = 'none';
+  document.querySelector('.each_email_show').style.display= 'none';
 
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
@@ -69,7 +71,9 @@ function load_mailbox(mailbox) {
         result.forEach(email => {
           const each_email = document.createElement('div');
           each_email.className='each_email_div';
-
+          if(email.read === false){
+            each_email.style.backgroundColor = "#d6d6d6";
+          }
 
           const left_side_of_email = document.createElement('div');
           left_side_of_email.className = 'left_side_of_email';
@@ -102,6 +106,7 @@ function load_mailbox(mailbox) {
           right_side_of_email.append(email_timestamp);
           document.querySelector('#emails-view').append(each_email);
 
+          each_email.addEventListener('click' , ()=>each_email_show(email.id));
         });
 
       })
@@ -110,5 +115,41 @@ function load_mailbox(mailbox) {
 
 
 
+}
+
+function each_email_show(email_id){
+  document.querySelector('#emails-view').style.display = 'none';
+  document.querySelector('#compose-view').style.display = 'none';
+  document.querySelector('.each_email_show').style.display= 'block';
+  fetch(`/emails/${email_id}`, {
+    method:'GET'
+  }).then(response => response.json())
+      .then(result =>{
+    console.log(result);
+    const email_from = document.createElement('div');
+      email_from.textContent=`From : ${result.sender}`
+      email_from.className='email_from';
+
+      const email_to = document.createElement('div');
+      email_to.textContent=`To : ${result.recipients}`;
+      email_to.className='email_to';
+
+      const email_subject = document.createElement('div');
+      email_subject.textContent = `Subject : ${result.subject}`;
+      email_subject.className = 'email_subject';
+
+      const email_timestamp = document.createElement('div');
+      email_timestamp.textContent = `Timestamp : ${result.timestamp}`;
+      email_timestamp.className = 'email_timestamp';
+
+      const email_body = document.createElement('div');
+      email_body.textContent = `${result.body}`;
+      email_body.className = 'email_body';
+
+      document.querySelector('.each_email_show').append(email_from,email_to,
+          email_subject,email_timestamp,email_body);
+
+
+  }).catch(err => console.error("Fetch error:", err));
 }
 

@@ -31,6 +31,7 @@ body{
     border: antiquewhite;
     border-radius: 5px;
     background-color: #f8f1e8;
+    /*background: #d6d6d6;*/
     display: flex;
     flex-direction: row;
     justify-content: center;
