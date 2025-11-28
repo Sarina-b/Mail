@@ -69,32 +69,38 @@ function load_mailbox(mailbox) {
         result.forEach(email => {
           const each_email = document.createElement('div');
           each_email.className='each_email_div';
-          document.querySelector('#emails-view').append(each_email);
+
 
           const left_side_of_email = document.createElement('div');
           left_side_of_email.className = 'left_side_of_email';
-          document.querySelector('.each_email_div').append(left_side_of_email);
+          each_email.append(left_side_of_email);
 
-
-          const email_recipients = document.createElement('div');
-          email_recipients.className = 'email_recipients';
-          email_recipients.textContent=`${email.recipients}`;
+          if(mailbox === 'sent'){
+            const email_recipients = document.createElement('div');
+            email_recipients.className = 'email_recipients';
+            email_recipients.textContent=`${email.recipients.join(' , ')}`;
+            left_side_of_email.append(email_recipients);
+          }else if(mailbox=== 'inbox'){
+            const email_sender = document.createElement('div');
+            email_sender.className = 'email_recipients';
+            email_sender.textContent=`${email.sender}`;
+            left_side_of_email.append(email_sender);
+          }
 
           const email_subject = document.createElement('div');
           email_subject.className='email_subject';
           email_subject.textContent = `${email.subject}`;
-
-          document.querySelector('.left_side_of_email').append(email_recipients,email_subject);
+          left_side_of_email.append(email_subject);
 
           const right_side_of_email = document.createElement('div');
           right_side_of_email.className = 'right_side_of_email';
-          document.querySelector('.each_email_div').append(right_side_of_email);
+          each_email.append(right_side_of_email);
 
           const email_timestamp = document.createElement('div');
           email_timestamp.textContent=`${email.timestamp}`;
           email_timestamp.className='email_timestamp';
-
           right_side_of_email.append(email_timestamp);
+          document.querySelector('#emails-view').append(each_email);
 
         });
 
