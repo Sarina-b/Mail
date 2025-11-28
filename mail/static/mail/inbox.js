@@ -121,10 +121,13 @@ function each_email_show(email_id){
   document.querySelector('#emails-view').style.display = 'none';
   document.querySelector('#compose-view').style.display = 'none';
   document.querySelector('.each_email_show').style.display= 'block';
+  document.querySelector('.each_email_show').innerHTML = "";
+  make_read_true(email_id)
   fetch(`/emails/${email_id}`, {
     method:'GET'
   }).then(response => response.json())
       .then(result =>{
+
     console.log(result);
     const email_from = document.createElement('div');
       email_from.textContent=`From : ${result.sender}`
@@ -151,5 +154,14 @@ function each_email_show(email_id){
 
 
   }).catch(err => console.error("Fetch error:", err));
+}
+
+function make_read_true(email_id){
+  fetch(`/emails/${email_id}`, {
+   method: 'PUT',
+   body: JSON.stringify({
+      read: true
+   })
+}).then(result => console.log(result))
 }
 
