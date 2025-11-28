@@ -79,6 +79,23 @@ function load_mailbox(mailbox) {
           left_side_of_email.className = 'left_side_of_email';
           each_email.append(left_side_of_email);
 
+          const right_side_of_email = document.createElement('div');
+          right_side_of_email.className = 'right_side_of_email';
+          each_email.append(right_side_of_email);
+
+           const email_subject = document.createElement('div');
+          email_subject.className='email_subject';
+          email_subject.textContent = `${email.subject}`;
+          left_side_of_email.append(email_subject);
+
+
+
+          const email_timestamp = document.createElement('div');
+          email_timestamp.textContent=`${email.timestamp}`;
+          email_timestamp.className='email_timestamp';
+          right_side_of_email.append(email_timestamp);
+          document.querySelector('#emails-view').append(each_email);
+
           if(mailbox === 'sent'){
             const email_recipients = document.createElement('div');
             email_recipients.className = 'email_recipients';
@@ -89,22 +106,15 @@ function load_mailbox(mailbox) {
             email_sender.className = 'email_recipients';
             email_sender.textContent=`${email.sender}`;
             left_side_of_email.append(email_sender);
+            const archive_btn = document.createElement('button');
+            archive_btn.className = 'archive_btn' ;
+            archive_btn.textContent = 'Archive';
+            right_side_of_email.append(archive_btn);
+            archive_btn.addEventListener('click' ,(event) =>{
+              event.stopPropagation();
+              make_archived(email.id);
+            });
           }
-
-          const email_subject = document.createElement('div');
-          email_subject.className='email_subject';
-          email_subject.textContent = `${email.subject}`;
-          left_side_of_email.append(email_subject);
-
-          const right_side_of_email = document.createElement('div');
-          right_side_of_email.className = 'right_side_of_email';
-          each_email.append(right_side_of_email);
-
-          const email_timestamp = document.createElement('div');
-          email_timestamp.textContent=`${email.timestamp}`;
-          email_timestamp.className='email_timestamp';
-          right_side_of_email.append(email_timestamp);
-          document.querySelector('#emails-view').append(each_email);
 
           each_email.addEventListener('click' , ()=>each_email_show(email.id));
         });
@@ -167,5 +177,26 @@ function make_read_true(email_id){
       read: true
    })
 }).then(result => console.log(result))
+}
+
+function make_archived(email_id){
+    fetch(`/emails/${email_id}`, {
+   method: 'PUT',
+   body: JSON.stringify({
+      archived: true
+   })
+}).then( () => load_mailbox('inbox'))
+        .catch(err => console.error(err));
+}
+
+function make_unarchived(email_id){
+      fetch(`/emails/${email_id}`, {
+   method: 'PUT',
+   body: JSON.stringify({
+      archived: false
+   })
+}).then(result => console.log(result))
+  load_mailbox('inbox');
+
 }
 
