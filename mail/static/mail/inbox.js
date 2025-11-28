@@ -131,26 +131,30 @@ function each_email_show(email_id){
     console.log(result);
     const email_from = document.createElement('div');
       email_from.textContent=`From : ${result.sender}`
-      email_from.className='email_from';
+      email_from.className='email_detail';
 
       const email_to = document.createElement('div');
       email_to.textContent=`To : ${result.recipients}`;
-      email_to.className='email_to';
+      email_to.className='email_detail';
 
       const email_subject = document.createElement('div');
       email_subject.textContent = `Subject : ${result.subject}`;
-      email_subject.className = 'email_subject';
+      email_subject.className = 'email_detail';
 
       const email_timestamp = document.createElement('div');
       email_timestamp.textContent = `Timestamp : ${result.timestamp}`;
-      email_timestamp.className = 'email_timestamp';
+      email_timestamp.className = 'email_detail';
 
       const email_body = document.createElement('div');
       email_body.textContent = `${result.body}`;
-      email_body.className = 'email_body';
+      email_body.className = 'email_detail';
+
+      const hr=document.createElement('hr');
+      hr.className='hr';
+
 
       document.querySelector('.each_email_show').append(email_from,email_to,
-          email_subject,email_timestamp,email_body);
+          email_subject,email_timestamp,hr,email_body);
 
 
   }).catch(err => console.error("Fetch error:", err));
