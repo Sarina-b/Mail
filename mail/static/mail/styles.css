@@ -83,4 +83,15 @@ body{
     border-radius: 4px;
 }
 
+.reply_btn{
+    width: 15%;
+    height: 35px;
+    background: #633636;
+    color: white;
+    border: #633636  solid;
+    border-radius: 4px;
+    margin-left: 2%;
+}
+
+
 

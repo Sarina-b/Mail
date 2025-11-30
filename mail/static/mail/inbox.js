@@ -82,24 +82,27 @@ function load_mailbox(mailbox) {
                 right_side_of_email.className = 'right_side_of_email';
                 each_email.append(right_side_of_email);
 
+                const email_timestamp = document.createElement('div');
+                email_timestamp.textContent = `${email.timestamp}`;
+                email_timestamp.className = 'email_timestamp';
+                right_side_of_email.append(email_timestamp);
+
+                if (mailbox === 'sent') {
+                    sent_features(left_side_of_email,email)
+                } else if (mailbox === 'inbox') {
+                    inbox_features(left_side_of_email, right_side_of_email, email);
+                } else if (mailbox === 'archive') {
+                    archive_features(right_side_of_email, email);
+                }
+
                 const email_subject = document.createElement('div');
                 email_subject.className = 'email_subject';
                 email_subject.textContent = `${email.subject}`;
                 left_side_of_email.append(email_subject);
 
-                const email_timestamp = document.createElement('div');
-                email_timestamp.textContent = `${email.timestamp}`;
-                email_timestamp.className = 'email_timestamp';
-                right_side_of_email.append(email_timestamp);
+
                 document.querySelector('#emails-view').append(each_email);
 
-                if (mailbox === 'sent') {
-                    sent_features(left_side_of_email)
-                } else if (mailbox === 'inbox') {
-                    inbox_features(left_side_of_email, right_side_of_email, email);
-                } else if (mailbox === 'archive') {
-                    archive_features(right_side_of_email,email);
-                }
 
                 each_email.addEventListener('click', () => each_email_show(email.id));
             });
@@ -109,7 +112,7 @@ function load_mailbox(mailbox) {
 
 }
 
-function sent_features(left_side_of_email) {
+function sent_features(left_side_of_email ,email) {
     const email_recipients = document.createElement('div');
     email_recipients.className = 'email_recipients';
     email_recipients.textContent = `${email.recipients.join(' , ')}`;
@@ -117,7 +120,7 @@ function sent_features(left_side_of_email) {
 
 }
 
-function archive_features(right_side_of_email,email) {
+function archive_features(right_side_of_email, email) {
     const archive_btn = document.createElement('button');
     archive_btn.className = 'archive_btn';
     archive_btn.textContent = 'Unarchive';
@@ -172,6 +175,12 @@ function each_email_show(email_id) {
             email_timestamp.textContent = `Timestamp : ${result.timestamp}`;
             email_timestamp.className = 'email_detail';
 
+            const reply_btn = document.createElement('button');
+            reply_btn.textContent = 'Reply';
+            reply_btn.className = 'reply_btn';
+
+            reply_btn.addEventListener('click', () => reply_email(result.id));
+
             const email_body = document.createElement('div');
             email_body.textContent = `${result.body}`;
             email_body.className = 'email_detail';
@@ -181,7 +190,27 @@ function each_email_show(email_id) {
 
 
             document.querySelector('.each_email_show').append(email_from, email_to,
-                email_subject, email_timestamp, hr, email_body);
+                email_subject, email_timestamp, hr, email_body, reply_btn);
+
+
+        }).catch(err => console.error("Fetch error:", err));
+}
+
+function reply_email(email_id) {
+    compose_email();
+    fetch(`/emails/${email_id}`, {
+        method: 'GET',
+    }).then(response => response.json())
+        .then(result => {
+            document.querySelector('#compose-recipients').value = result.sender;
+            if (result.subject.startsWith('Re: ')) {
+                document.querySelector('#compose-subject').value = result.subject;
+            } else {
+                document.querySelector('#compose-subject').value= `Re: ${result.subject}`;
+            }
+            document.querySelector('#compose-body').value =
+                `On ${result.timestamp} ${result.sender} wrote : ${result.body}`;
+            document.querySelector('#compose-subject').value = previous_subject;
 
 
         }).catch(err => console.error("Fetch error:", err));
