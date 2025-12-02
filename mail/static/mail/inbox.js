@@ -57,7 +57,7 @@ function load_mailbox(mailbox) {
     document.querySelector('.each_email_show').style.display = 'none';
 
     // Show the mailbox name
-    document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
+    document.querySelector('#emails-view').innerHTML = `<h3 class="head">${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
     fetch(`/emails/${mailbox}`, {
         method: 'GET',
 
