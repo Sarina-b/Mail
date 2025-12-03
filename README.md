@@ -77,20 +77,48 @@ Create and send an email:
 }
 ```
 ### `PUT /emails/<id>`
-Update email state:
-```json
-{ "read": true }
-```
-
-```json
-{ "archived": true }
-```
-```json
-{ "archived": false }
-```
+Update email state
 
 Note:
 For this project, these endpoints are intentionally CSRF-exempt.
+
+## JavaScript Overview (`script.js`)
+
+### `load_mailbox(mailbox)`
+Loads and renders the selected mailbox (Inbox, Sent, or Archive).
+
+---
+
+### `compose_email()`
+Displays the compose form and resets all input fields.
+
+---
+
+### `compose_email_btn(e)`
+Handles the email submission process using a **POST** request.
+
+---
+
+### `each_email_show(id)`
+Opens a single email, shows all details, and marks the email as **read**.
+
+---
+
+### `reply_email(id)`
+Automatically fills the reply form with:
+- the original sender as the recipient  
+- the subject (prepends **Re:** only if not already present)  
+- a quoted version of the original message including timestamp  
+
+---
+
+### **Archiving Functions**
+
+#### `make_archived(id)`
+Archives the selected email.
+
+#### `make_unarchived(id)`
+Unarchives the selected email.
 
 
 
