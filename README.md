@@ -6,6 +6,28 @@ and dynamically interact with the interface without full page reloads.
 
 ---
 
+## 🚀 Features
+
+### **Authentication**
+- Register, log in, and log out  
+- Password confirmation & duplicate email validation  
+
+### **Email Actions**
+- Compose and send emails  
+- View **Inbox**, **Sent**, and **Archive**  
+- Read full email details  
+- Reply to emails with auto-filled context  
+- Emails marked as **read** when opened  
+- Archive / unarchive emails instantly  
+
+### **Dynamic Frontend (Single-page behavior)**
+- Mailboxes load without page reload  
+- Email previews built dynamically with JS  
+- Event listeners for clicks, archiving, replying  
+- Uses `fetch()` for all server communication  
+
+---
+
 ## Project Structure
 ```
 ├── mail/
@@ -32,29 +54,7 @@ and dynamically interact with the interface without full page reloads.
 
 ```
 
----
 
-## 🚀 Features
-
-### **Authentication**
-- Register, log in, and log out  
-- Password confirmation & duplicate email validation  
-
-### **Email Actions**
-- Compose and send emails  
-- View **Inbox**, **Sent**, and **Archive**  
-- Read full email details  
-- Reply to emails with auto-filled context  
-- Emails marked as **read** when opened  
-- Archive / unarchive emails instantly  
-
-### **Dynamic Frontend (Single-page behavior)**
-- Mailboxes load without page reload  
-- Email previews built dynamically with JS  
-- Event listeners for clicks, archiving, replying  
-- Uses `fetch()` for all server communication  
-
----
 
 ## 🔌 API Endpoints
 
@@ -81,6 +81,20 @@ Update email state
 
 Note:
 For this project, these endpoints are intentionally CSRF-exempt.
+
+## URL Patterns
+
+| Endpoint | Method | Description |
+|---------|--------|-------------|
+| `/` | GET | Homepage (index) |
+| `/login` | GET / POST | Login page & authentication |
+| `/logout` | GET | Logs the user out |
+| `/register` | GET / POST | User registration |
+| `/emails` | POST | Compose and send a new email |
+| `/emails/<int:email_id>` | GET / PUT | Get a specific email or update (read/archive) |
+| `/emails/<str:mailbox>` | GET | Fetch mailbox: inbox, sent, archive |
+
+---
 
 ## JavaScript Overview (`script.js`)
 
@@ -119,6 +133,22 @@ Archives the selected email.
 
 #### `make_unarchived(id)`
 Unarchives the selected email.
+
+## Tech Stack
+
+- **Django** — Backend framework, authentication, and API handling  
+- **SQLite** — Default database for development  
+- **JavaScript** — Dynamic frontend behavior and interaction  
+- **HTML / CSS** — Template rendering and styling  
+- **Fetch API** — AJAX-style asynchronous communication with the backend
+
+## Author
+
+**Sarina**  
+Computer Engineering Student | Passionate about Web Development  
+
+Email: [sarinababadi900@gmail.com](mailto:sarinababadi900@gmail.com)  
+GitHub: [Sarina-b](https://github.com/Sarina-b)
 
 
 
