@@ -1,17 +1,20 @@
 textarea {
     min-height: 400px;
 }
-body{
+
+body {
     background-color: antiquewhite;
 }
-#emails-view{
+
+#emails-view {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-.left_side_of_email{
+
+.left_side_of_email {
     display: flex;
     justify-content: flex-start;
     margin-left: 2%;
@@ -20,7 +23,8 @@ body{
     width: 40%;
     gap: 8%;
 }
-.right_side_of_email{
+
+.right_side_of_email {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +32,8 @@ body{
     width: 50%;
     gap: 50px;
 }
-.each_email_div{
+
+.each_email_div {
     border: antiquewhite;
     border-radius: 5px;
     background-color: #f8f1e8;
@@ -45,10 +50,12 @@ body{
     color: #633636;
     font-size: 17px;
 }
-.each_email_div:hover{
+
+.each_email_div:hover {
     transform: scale(1.02);
 }
-.each_email_show{
+
+.each_email_show {
     margin-top: 2%;
     display: flex;
     flex-direction: column;
@@ -58,43 +65,50 @@ body{
     width: 70%;
     min-height: 500px;
 }
-.email_timestamp{
+
+.email_timestamp {
     width: auto;
 }
-.email_detail{
+
+.email_detail {
     margin-top: 1%;
     margin-left: 2%;
     margin-bottom: 1%;
 }
-.container{
+
+.container {
     width: 100%;
 }
+
 .hr {
     width: 70%;
     border: 1px solid #633636;
 }
-.container{
+
+.container {
     margin-top: 2%;
 }
-.archive_btn{
+
+.archive_btn {
     width: 30%;
     height: 40px;
     background: #633636;
     color: white;
-    border: #633636  solid;
+    border: #633636 solid;
     border-radius: 4px;
 }
 
-.reply_btn{
+.reply_btn {
     width: 15%;
     height: 35px;
     background: #633636;
     color: white;
-    border: #633636  solid;
+    border: #633636 solid;
     border-radius: 4px;
     margin-left: 2%;
 }
-.header{
+
+.header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,7 +117,8 @@ body{
     color: white;
     font-family: "Segoe UI", sans-serif;
 }
-.buttons{
+
+.buttons {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -111,18 +126,59 @@ body{
     align-items: center;
     gap: 8%;
 }
-.btn{
+
+.btn {
     color: white;
     font-size: larger;
 }
-.btn:hover{
+.btn:focus{
+    box-shadow: none;
+}
+
+.btn:hover {
     transform: scale(1.12);
     color: inherit;
 }
-.head{
+
+.head {
     color: #633636;
 }
 
+.forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: #633636 solid 1px;
+    min-height: 500px;
+    margin-top: 10%;
+    gap: 20px;
+}
 
+.form-group {
+    width: 40%;
+    border-radius: 6px;
+    border: #633636 solid 2px;
+}
 
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border: #633636 solid 1px;
+}
+
+.register_login_btn {
+    width: 12%;
+    background-color: #633636;
+    color: white;
+    border: #633636 solid;
+    border-radius: 3px;
+    height: 42px;
+    font-size: larger;
+}
+
+.register_login_btn:hover {
+    transform: scale(1.12);
+}
 

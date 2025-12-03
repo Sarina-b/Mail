@@ -88,7 +88,7 @@ function load_mailbox(mailbox) {
                 right_side_of_email.append(email_timestamp);
 
                 if (mailbox === 'sent') {
-                    sent_features(left_side_of_email,email)
+                    sent_features(left_side_of_email, email)
                 } else if (mailbox === 'inbox') {
                     inbox_features(left_side_of_email, right_side_of_email, email);
                 } else if (mailbox === 'archive') {
@@ -112,7 +112,7 @@ function load_mailbox(mailbox) {
 
 }
 
-function sent_features(left_side_of_email ,email) {
+function sent_features(left_side_of_email, email) {
     const email_recipients = document.createElement('div');
     email_recipients.className = 'email_recipients';
     email_recipients.textContent = `${email.recipients.join(' , ')}`;
@@ -206,7 +206,7 @@ function reply_email(email_id) {
             if (result.subject.startsWith('Re: ')) {
                 document.querySelector('#compose-subject').value = result.subject;
             } else {
-                document.querySelector('#compose-subject').value= `Re: ${result.subject}`;
+                document.querySelector('#compose-subject').value = `Re: ${result.subject}`;
             }
             document.querySelector('#compose-body').value =
                 `On ${result.timestamp} ${result.sender} wrote : ${result.body}`;
