@@ -6,7 +6,7 @@ and dynamically interact with the interface without full page reloads.
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### **Authentication**
 - Register, log in, and log out  
