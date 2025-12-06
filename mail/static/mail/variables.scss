@@ -1,0 +1,24 @@
+$my_color: #633636;
+
+%flex_column_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+%flex_row_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+%button_feature {
+  background: $my_color;
+  color: white;
+  border: $my_color solid;
+  border-radius: 4px;
+}

@@ -1,0 +1,191 @@
+.forms, .header, #emails-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons, .each_email_div, .right_side_of_email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.compose-btn, .register_login_btn, .reply_btn, .archive_btn {
+  background: #633636;
+  color: white;
+  border: #633636 solid;
+  border-radius: 4px;
+}
+
+textarea {
+  min-height: 400px;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+#emails-view {
+  width: 100%;
+}
+
+.left_side_of_email {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 2%;
+  align-items: center;
+  flex-direction: row;
+  width: 40%;
+  gap: 8%;
+}
+
+.right_side_of_email {
+  width: 50%;
+  gap: 50px;
+}
+
+.each_email_div {
+  border: antiquewhite;
+  border-radius: 5px;
+  background-color: #f8f1e8;
+  width: 100%;
+  gap: 40%;
+  margin-bottom: 10px;
+  height: 50px;
+  font-family: "Segoe UI", sans-serif;
+  color: #633636;
+  font-size: 17px;
+}
+
+.each_email_div:hover {
+  transform: scale(1.02);
+}
+
+.each_email_show {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: #633636 solid;
+  width: 70%;
+  min-height: 500px;
+}
+
+.email_timestamp {
+  width: auto;
+}
+
+.email_detail {
+  margin-top: 1%;
+  margin-left: 2%;
+  margin-bottom: 1%;
+}
+
+.container {
+  width: 100%;
+}
+
+.hr {
+  width: 70%;
+  border: 1px solid #633636;
+}
+
+.container {
+  margin-top: 2%;
+}
+
+.archive_btn {
+  width: 30%;
+  height: 40px;
+}
+
+.reply_btn {
+  width: 15%;
+  height: 35px;
+  margin-left: 2%;
+}
+
+.header {
+  background-color: #633636;
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.buttons {
+  width: 100%;
+  gap: 8%;
+}
+
+.btn {
+  color: white;
+  font-size: larger;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn:hover {
+  transform: scale(1.12);
+  color: inherit;
+}
+
+.head {
+  color: #633636;
+}
+
+.forms {
+  width: 100%;
+  border: #633636 solid 1px;
+  min-height: 500px;
+  margin-top: 10%;
+  gap: 20px;
+}
+
+.form-group {
+  width: 40%;
+  border-radius: 6px;
+  border: #633636 solid 2px;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border: #633636 solid 1px;
+}
+
+.register_login_btn {
+  width: 12%;
+  height: 42px;
+  font-size: larger;
+}
+
+.register_login_btn:hover {
+  transform: scale(1.12);
+}
+
+.compose-input {
+  border-radius: 4px;
+  border: #633636 solid 2px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.compose-input:focus {
+  border: #633636 solid 2px;
+}
+
+.compose-btn {
+  width: 15%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.compose-btn:hover {
+  transform: scale(1.12);
+}
+
+/*# sourceMappingURL=style.css.map */
