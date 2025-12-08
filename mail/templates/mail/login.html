@@ -1,13 +1,6 @@
 {% extends "mail/layout.html" %}
 
 {% block body %}
-
-
-
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-
     <form class="forms" action="{% url 'login' %}" method="post">
         <h2 class="head">Login</h2>
         {% csrf_token %}
@@ -18,6 +11,9 @@
             <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
         <input class="register_login_btn" type="submit" value="Login">
+        {% if message %}
+            <div style="color:red">{{ message }}</div>
+        {% endif %}
         <p>Don't have an account? <a style="color: #633636" href="{% url 'register' %}">Register here.</a></p>
     </form>
 

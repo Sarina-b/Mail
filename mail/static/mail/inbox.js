@@ -31,6 +31,13 @@ function compose_email_btn(e) {
         })
     }).then(response => response.json())
         .then(result => {
+            if (result.error) {
+                alert(result.error);
+                return;
+            }
+            if (result.message) {
+                alert(result.message);
+            }
             console.log(result);
             load_mailbox('sent');
         })
@@ -64,7 +71,10 @@ function load_mailbox(mailbox) {
     })
         .then(response => response.json())
         .then(result => {
-
+            if (result.error) {
+                alert(result.error);
+                return;
+            }
             console.log(result);
 
             result.forEach(email => {
@@ -157,6 +167,11 @@ function each_email_show(email_id) {
         method: 'GET'
     }).then(response => response.json())
         .then(result => {
+
+            if (result.error) {
+                alert(result.error);
+                return;
+            }
 
             console.log(result);
             const email_from = document.createElement('div');
