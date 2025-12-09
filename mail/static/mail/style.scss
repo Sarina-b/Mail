@@ -1,4 +1,5 @@
 @import "variables";
+@import "mailDisplay";
 
 textarea {
   min-height: 400px;
@@ -6,45 +7,6 @@ textarea {
 
 body {
   background-color: antiquewhite;
-}
-
-#emails-view {
-  @extend %flex_column_center;
-  width: 100%;
-}
-
-.left_side_of_email {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 2%;
-  align-items: center;
-  flex-direction: row;
-  width: 45%;
-  gap: 8%;
-}
-
-.right_side_of_email {
-  @extend %flex_row_center;
-  width: 50%;
-  gap: 50px;
-}
-
-.each_email_div {
-  border: antiquewhite;
-  border-radius: 5px;
-  background-color: #f8f1e8;
-  @extend %flex_row_center;
-  width: 100%;
-  gap: 40%;
-  margin-bottom: 10px;
-  height: 50px;
-  font-family: "Segoe UI", sans-serif;
-  color: $my_color;
-  font-size: 17px;
-}
-
-.each_email_div:hover {
-  transform: scale(1.02);
 }
 
 .each_email_show {
@@ -59,11 +21,6 @@ body {
   color: $my_color;
   font-weight: bold;
   font-size: 16px;
-}
-
-.email_timestamp {
-  width: auto;
-  flex-wrap: nowrap;
 }
 
 .email_detail {
@@ -83,12 +40,6 @@ body {
 
 .container {
   margin-top: 2%;
-}
-
-.archive_btn {
-  width: 30%;
-  height: 40px;
-  @extend %button_feature;
 }
 
 .reply_btn {
@@ -149,7 +100,8 @@ body {
   border-radius: 6px;
   border: $my_color solid 2px;
 }
-.form-control{
+
+.form-control {
   background-color: #f8f1e8;
 }
 
@@ -195,17 +147,6 @@ body {
   transform: scale(1.12);
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
-  .left_side_of_email {
-    width: 50%;
-  }
-  .right_side_of_email {
-    width: 70%;
-  }
-  .each_email_div {
-    gap: 30%;
-  }
-}
 
 @media (min-width: 765px) and (max-width: 991px) {
   .each_email_div {
@@ -216,15 +157,6 @@ body {
   }
   .right_side_of_email {
     width: 60%;
-  }
-  .form-group{
-    width: 60%;
-  }
-  .each_email_show{
-    width: 80%;
-  }
-  .reply_btn{
-    margin-top: 50%;
   }
 }
 
@@ -237,10 +169,6 @@ body {
     margin-left: 5%;
     gap: 4px;
   }
-  .buttons {
-    gap: 2%;
-    font-size: 14px;
-  }
   .each_email_div {
     gap: 5%;
     font-size: 16px;
@@ -248,18 +176,6 @@ body {
   .right_side_of_email {
     width: 70%;
     gap: 4px;
-  }
-  .form-group{
-    width: 60%;
-  }
-  .register_login_btn{
-    width: 20%;
-  }
-  .each_email_show{
-    width: 90%;
-  }
-  .reply_btn{
-    margin-top: 60%;
   }
 }
 

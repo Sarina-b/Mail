@@ -1,0 +1,68 @@
+#emails-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.each_email_div, .right_side_of_email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.archive_btn {
+  background: #633636;
+  color: white;
+  border: #633636 solid;
+  border-radius: 4px;
+}
+
+#emails-view {
+  width: 100%;
+}
+
+.left_side_of_email {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 2%;
+  align-items: center;
+  flex-direction: row;
+  width: 45%;
+  gap: 8%;
+}
+
+.right_side_of_email {
+  width: 50%;
+  gap: 50px;
+}
+
+.each_email_div {
+  border: antiquewhite;
+  border-radius: 5px;
+  background-color: #f8f1e8;
+  width: 100%;
+  gap: 40%;
+  margin-bottom: 10px;
+  height: 50px;
+  font-family: "Segoe UI", sans-serif;
+  color: #633636;
+  font-size: 17px;
+}
+
+.each_email_div:hover {
+  transform: scale(1.02);
+}
+
+.email_timestamp {
+  width: auto;
+  flex-wrap: nowrap;
+}
+
+.archive_btn {
+  width: 30%;
+  height: 40px;
+}
+
+/*# sourceMappingURL=mailDisplay.css.map */
