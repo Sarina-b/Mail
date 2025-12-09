@@ -56,10 +56,14 @@ body {
   border: $my_color solid;
   width: 70%;
   min-height: 500px;
+  color: $my_color;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .email_timestamp {
   width: auto;
+  flex-wrap: nowrap;
 }
 
 .email_detail {
@@ -88,10 +92,15 @@ body {
 }
 
 .reply_btn {
+  margin-top: 35%;
   width: 15%;
-  height: 35px;
+  height: 40px;
   @extend %button_feature;
   margin-left: 2%;
+  margin-bottom: 5%;
+}
+.reply_btn:hover{
+  transform: scale(1.12);
 }
 
 .header {
@@ -177,5 +186,30 @@ body {
 
 .compose-btn:hover {
   transform: scale(1.12);
+}
+
+@media (min-width:992px)  and (max-width: 1200px){
+  .left_side_of_email{
+    width: 50% ;
+  }
+  .right_side_of_email{
+    width: 70%;
+  }
+  .each_email_div{
+    gap: 30%;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 991px){
+  .each_email_div{
+    gap: 14%;
+  }
+  .left_side_of_email{
+    gap: 3%;
+  }
+  .right_side_of_email{
+    width: 60%;
+  }
+  
 }
 
