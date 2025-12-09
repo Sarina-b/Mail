@@ -102,7 +102,7 @@ function load_mailbox(mailbox) {
                 } else if (mailbox === 'inbox') {
                     inbox_features(left_side_of_email, right_side_of_email, email);
                 } else if (mailbox === 'archive') {
-                    archive_features(right_side_of_email, email);
+                    archive_features(left_side_of_email,right_side_of_email, email);
                 }
 
                 const email_subject = document.createElement('div');
@@ -125,12 +125,16 @@ function load_mailbox(mailbox) {
 function sent_features(left_side_of_email, email) {
     const email_recipients = document.createElement('div');
     email_recipients.className = 'email_recipients';
-    email_recipients.textContent = `${email.recipients.join(' , ')}`;
+    email_recipients.textContent = `To: ${email.recipients.join(' , ')}`;
     left_side_of_email.append(email_recipients);
 
 }
 
-function archive_features(right_side_of_email, email) {
+function archive_features(left_side_of_email,right_side_of_email, email) {
+    const email_sender = document.createElement('div');
+    email_sender.className = 'email_recipients';
+    email_sender.textContent = `${email.sender}`;
+    left_side_of_email.append(email_sender);
     const archive_btn = document.createElement('button');
     archive_btn.className = 'archive_btn';
     archive_btn.textContent = 'Unarchive';

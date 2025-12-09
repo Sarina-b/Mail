@@ -19,7 +19,7 @@ body {
   margin-left: 2%;
   align-items: center;
   flex-direction: row;
-  width: 40%;
+  width: 45%;
   gap: 8%;
 }
 
@@ -99,7 +99,8 @@ body {
   margin-left: 2%;
   margin-bottom: 5%;
 }
-.reply_btn:hover{
+
+.reply_btn:hover {
   transform: scale(1.12);
 }
 
@@ -139,7 +140,7 @@ body {
   width: 100%;
   border: $my_color solid 1px;
   min-height: 500px;
-  margin-top: 10%;
+  margin-top: 100px;
   gap: 20px;
 }
 
@@ -148,11 +149,15 @@ body {
   border-radius: 6px;
   border: $my_color solid 2px;
 }
+.form-control{
+  background-color: #f8f1e8;
+}
 
 .form-control:focus {
   outline: none;
   box-shadow: none;
   border: $my_color solid 1px;
+  background-color: #f8f1e8;
 }
 
 .register_login_btn {
@@ -171,10 +176,12 @@ body {
   border: $my_color solid 2px;
   width: 100%;
   margin-bottom: 20px;
+  background-color: #f8f1e8;
 }
 
 .compose-input:focus {
   border: $my_color solid 2px;
+  background-color: #f8f1e8;
 }
 
 .compose-btn {
@@ -188,28 +195,71 @@ body {
   transform: scale(1.12);
 }
 
-@media (min-width:992px)  and (max-width: 1200px){
-  .left_side_of_email{
-    width: 50% ;
+@media (min-width: 992px) and (max-width: 1200px) {
+  .left_side_of_email {
+    width: 50%;
   }
-  .right_side_of_email{
+  .right_side_of_email {
     width: 70%;
   }
-  .each_email_div{
+  .each_email_div {
     gap: 30%;
   }
 }
 
-@media (min-width: 500px) and (max-width: 991px){
-  .each_email_div{
+@media (min-width: 765px) and (max-width: 991px) {
+  .each_email_div {
     gap: 14%;
   }
-  .left_side_of_email{
+  .left_side_of_email {
     gap: 3%;
   }
-  .right_side_of_email{
+  .right_side_of_email {
     width: 60%;
   }
-  
+  .form-group{
+    width: 60%;
+  }
+  .each_email_show{
+    width: 80%;
+  }
+  .reply_btn{
+    margin-top: 50%;
+  }
+}
+
+@media (max-width: 764px) {
+  .left_side_of_email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 5%;
+    gap: 4px;
+  }
+  .buttons {
+    gap: 2%;
+    font-size: 14px;
+  }
+  .each_email_div {
+    gap: 5%;
+    font-size: 16px;
+  }
+  .right_side_of_email {
+    width: 70%;
+    gap: 4px;
+  }
+  .form-group{
+    width: 60%;
+  }
+  .register_login_btn{
+    width: 20%;
+  }
+  .each_email_show{
+    width: 90%;
+  }
+  .reply_btn{
+    margin-top: 60%;
+  }
 }
 
